@@ -1,0 +1,15 @@
+{
+	"name": "templatesapui5withroutingfeature.client",
+	"title": "templatesapui5withroutingfeature",
+	"version": "0.0.1",
+	"description": "Template SAPUI5 With Routing Feature",
+	"scripts": {
+		"postinstall": "node ./scripts/bundle.js"
+	},
+	"devDependencies": {
+		"fs-extra": "4.0.0"
+	},
+	"bundledPlugins": {
+		"templatesapui5withroutingplugin": "file:src/templatesapui5withroutingplugin"
+	}
+}

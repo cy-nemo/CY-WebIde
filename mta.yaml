@@ -1,0 +1,26 @@
+_schema-version: "2.0.0"
+ID: templatesapui5withroutingfeature
+version: 0.0.1
+
+modules:
+  - name: TemplateSAPUI5WithRouting
+    type: html5
+    path: public
+    provides:
+      - name: TemplateSAPUI5WithRouting
+        public: true
+    build-parameters:
+      builder: npm
+      ignore: [".che/", ".npmrc"]
+      timeout: 15m
+      requires:
+        - name: TemplateSAPUI5WithRouting-client
+          artifacts: ["dist/*"]
+          target-path: "client"
+  - name: TemplateSAPUI5WithRouting-client
+    type: html5
+    path: client
+    build-parameters:
+      builder: npm
+      timeout: 15m
+      supported-platforms: []

@@ -1,0 +1,43 @@
+{
+    "name": "templatesapui5withroutingplugin",
+    "description": "Template SAPUI5 With Routing plugin",
+    "i18n": "templatesapui5withroutingplugin/i18n/i18n",
+    "requires": {
+        "services": [
+            "template",
+            "templateCustomizationStep"
+        ]
+    },
+    "provides": {
+        "services": {},
+        "interfaces": {}
+    },
+    "configures": {
+        "services": {
+            "template:templates": [
+                {
+                    "id": "TemplateSAPUI5WithRouting.sapui5withrouting",
+                    "template": "templatesapui5withroutingplugin/sapui5withrouting/sapui5withrouting",
+                    "name": "{i18n>Config_template_sapui5withrouting_name}",
+                    "description": "{i18n>Config_template_sapui5withrouting_desc}",
+                    "path": "templatesapui5withroutingplugin/sapui5withrouting",
+                    "icon": "sap-icon://detail-view",
+                    "internalOnly": false,
+                    "category": "SAP.Fiori.Application",
+                    "wizardSteps": [
+                        "templateCustomizationStep"
+                    ],
+                    "templateType": "project",
+                    "requiresNeoApp": true,
+                    "version": "1.0.0",
+                    "orderPriority": 1000,
+                    "modelRoot": "basicSAPUI5ApplicationProject",
+                    "modelFileName": "model.json",
+                    "fileName": "resources.zip",
+                    "previewImage": "image/SAPUI5-Application.png"
+                }
+            ]
+        }
+    },
+    "subscribes": {}
+}

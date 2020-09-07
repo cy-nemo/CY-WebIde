@@ -1,0 +1,58 @@
+<mvc:View xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form"
+	controllerName="{{basicSAPUI5ApplicationProject.parameters.namespace.value}}.controller.pages.{{basicSAPUI5ApplicationProject.parameters.name1.value}}" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+		<App id="app">
+		<Table id="idopportunityTable" inset="false" items="{/opportunityList}">
+			<headerToolbar>
+				<OverflowToolbar>
+					<content>
+						<Title text="opportunities" level="H2"/>
+						<ToolbarSpacer/>
+						<Button id="searchBtn" text="Search" press="getDataList"/>
+					</content>
+				</OverflowToolbar>
+			</headerToolbar>
+			<infoToolbar>
+				<OverflowToolbar>
+					<Label text="Result List"/>
+				</OverflowToolbar>
+			</infoToolbar>
+			<columns>
+				<Column width="12em">
+					<Text text="Opportunity id"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="Sales Stage"/>
+				</Column>
+				<Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+					<Text text="Lifecycle Status"/>
+				</Column>
+				<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+					<Text text="Description"/>
+				</Column>
+				<Column hAlign="End">
+					<Text text="Expected Sales Volume"/>
+				</Column>
+				<Column hAlign="End">
+					<Text text="Currency"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{Id}"/>
+						<Link text="{SupplierName}" press="onPress"/>
+						<Text text="{MainCategoryName}"/>
+						<Text text="{Description}"/>
+						<Text text="{SubCategoryName}"/>
+						<Text text="{CurrencyCode}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</App>
+</mvc:View>

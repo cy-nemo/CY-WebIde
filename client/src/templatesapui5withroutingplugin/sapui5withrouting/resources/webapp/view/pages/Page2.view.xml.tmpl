@@ -1,0 +1,200 @@
+<mvc:View
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="{{basicSAPUI5ApplicationProject.parameters.namespace.value}}.controller.pages.{{basicSAPUI5ApplicationProject.parameters.name2.value}}" 
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mc="sap.suite.ui.microchart"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:cm="sap.suite.ui.commons"
+	class="sapUiSizeCompact"
+	height="100%">
+	<Page showHeader="false" class="cmPage">
+		<content>
+			<VBox>
+				<l:Grid containerQuery="true" class="headerSection" vSpacing="0" hSpacing="0" defaultSpan="XL12 L12 M12 S12">
+					<VBox width="100%">
+						<Text text="Kixo Q1 Deal" class="headerSectionTt" />
+					</VBox>
+					<VBox width="100%">						
+					<l:Grid defaultSpan="XL12 L12 M12 S12">
+							<Wizard	enableBranching="false" height="52px" currentStep="C">
+								<WizardStep validated="false" title="Lead" />
+								<WizardStep validated="false" title="Indentfy Oppoutunity" />
+								<WizardStep validated="false" id="C" title="Prepare Value Prop" />
+								<WizardStep validated="false" title="Quotation" />
+								<WizardStep validated="false" title="Close" />
+							</Wizard>
+						</l:Grid>
+					</VBox>
+					<VBox>
+						<l:Grid defaultSpan="XL2 L2 M2 S2">
+							<HBox>
+								<core:Icon src="sap-icon://building" class="companyIcon" tooltip="Kixo, INC" />
+								<Text text="Kixo, INC" class="companyTt" />
+							</HBox>
+							<HBox>
+								<VBox>
+									<ObjectStatus text="-" state="None"/>
+									<Text text="Amount" />
+								</VBox>
+							</HBox>
+							<HBox>
+								<VBox>
+									<ObjectStatus text="In Process" state="Error"/>
+									<Text text="Deal Status" />
+								</VBox>
+							</HBox>
+							<HBox>
+								<VBox>
+									<ObjectStatus text="Mar 20, 2020" state="None"/>
+									<Text text="Deal Status" />
+								</VBox>
+							</HBox>
+							<HBox>
+								<mc:ColumnMicroChart size="S">
+									<mc:columns>
+										<mc:ColumnMicroChartData	value="50" color="Critical"/>
+										<mc:ColumnMicroChartData	value="60" color="Critical"/>
+										<mc:ColumnMicroChartData	value="-10" color="Error"/>
+										<mc:ColumnMicroChartData	value="40" color="Critical"/>
+										<mc:ColumnMicroChartData	value="35" color="Critical"/>
+										<mc:ColumnMicroChartData	value="-15" color="Error"/>
+									</mc:columns>
+								</mc:ColumnMicroChart>
+							</HBox>
+							<HBox>
+								<mc:BulletMicroChart size="XS" scale="M" targetValue="100" forecastValue="110" class="sapUiSmallMargin" press="press">
+									<mc:actual>
+										<mc:BulletMicroChartData value="120" color="Good"/>
+									</mc:actual>
+									<mc:thresholds>
+										<mc:BulletMicroChartData value="0" color="Error"/>
+										<mc:BulletMicroChartData value="50" color="Critical"/>
+										<mc:BulletMicroChartData value="150" color="Critical"/>
+										<mc:BulletMicroChartData value="200" color="Error"/>
+									</mc:thresholds>
+								</mc:BulletMicroChart>
+							</HBox>
+						</l:Grid>
+					</VBox>
+				</l:Grid>
+			</VBox>
+			<Title text="Recommended Actions" class="sTtitle" />
+			<VBox>
+				<List class="cardList">
+					<CustomListItem class="cardStatus stError">
+						<VBox>
+							<Text text="Add Sales Team" class="cardTt" />
+						</VBox>
+						<HBox>
+							<core:Icon size="2rem" src="sap-icon://activity-individual" class="sapUiSmallMarginBegin" />
+							<VBox class="sapUiSmallMarginBegin" >
+								<Text text="Lucy Miller"/>
+								<Label text="Pre-Sales Expert"/>
+							</VBox>
+						</HBox>
+						<VBox alignItems="End">
+							<HBox>
+								<Button text="Show List" />
+								<Button type="Accept" text="Add" />
+							</HBox>
+						</VBox>
+					</CustomListItem>
+					<CustomListItem class="cardStatus stSuccess">
+						<VBox>
+							<Text text="Suggested Product (9)" class="cardTt" />
+						</VBox>
+						<HBox>
+							<core:Icon size="2rem" src="sap-icon://add-product" class="sapUiSmallMarginBegin" />
+							<VBox class="sapUiSmallMarginBegin" >
+								<Text text="SmartTablet"/>
+								<Label text="Unit Price: $400 USD"/>
+							</VBox>
+						</HBox>
+						<VBox alignItems="End">
+							<HBox>
+								<Button text="Show List" />
+								<Button type="Accept" text="Add" />
+							</HBox>
+						</VBox>
+					</CustomListItem>
+				</List>
+			</VBox>
+			<HBox class="titleArea">
+				<Title text="Deal Workspace" class="sTtitle" />
+				<Button  text="SAP JAM" press="openJam" />
+			</HBox>
+			<VBox>
+				<l:Grid containerQuery="true" defaultSpan="XL4 L4 M4 S4" vSpacing="0" hSpacing="0">
+					<UploadCollection
+						id="UploadCollection"
+						maximumFilenameLength="55"
+						maximumFileSize="10"
+						multiple="true"
+						sameFilenameAllowed="true"
+						numberOfAttachmentsText="Sales Team"
+						instantUpload="false"
+						noDataDescription="Looks like no members are added"
+						change="onChange"
+						fileDeleted="onFileDeleted"
+						filenameLengthExceed="onFilenameLengthExceed"
+						fileSizeExceed="onFileSizeExceed"
+						typeMissmatch="onTypeMissmatch"
+						uploadComplete="onUploadComplete"
+						beforeUploadStarts="onBeforeUploadStarts" />
+					<l:BlockLayout id="BlockLayout">
+						<l:BlockLayoutRow>
+							<l:BlockLayoutCell title="Recent Note">
+								<Button text="+ Write here to create a new note" />
+								<Text text="An aggregation is a special relation between two UI element types. It is used to define the parent-child relationship within the tree structure. The parent end of the aggregation has cardinality 0..1, while the child end may have 0..1 or 0..*. The element's API offers convenient and consistent methods to deal with aggregations (e.g. to get, set, or remove target elements). Examples are table rows and cells, or the content of a table cell." />
+							</l:BlockLayoutCell>
+						</l:BlockLayoutRow>
+					</l:BlockLayout>
+					<cm:Timeline
+						id="idTimeline"
+						showIcons="true">
+						<cm:content>
+							<cm:TimelineItem
+								userName="Laurent Dubois"
+								title="Accounts Payables Manager"
+								userPicture="test-resources/sap/suite/ui/commons/demokit/sample/Timeline/images/Laurent_Dubois.png"
+								icon="sap-icon://activity-individual"
+								filterValue="Accounts Payables Manager"
+								text="Plans, organizes and manages the operations and activities of an accounts payables."
+								dateTime="Date(1371020400000)">
+							</cm:TimelineItem>
+							<cm:TimelineItem
+								userName="Sabine Mayer"
+								title="Configuration Expert"
+								filterValue="Configuration Expert"
+								userPicture="/test-resources/sap/suite/ui/commons/demokit/sample/Timeline/images/Sabine_Mayer.png"
+								icon="sap-icon://settings"
+								text="Implementing new Public Cloud ERP Financials system into his company and keeping it aligned with business.&#xA;During the initial set-up of an ERP system: Customizing Financial Accounting settings such as organizational  structures, chart of accounts, and tax configuration (as part of implementation projects).&#xA;During the ongoing maintenance of the configuration: Adapting the configuration to organizational and  process changes in business. I’m a versatile person. I keep the big picture in mind."
+								dateTime="Date(1376290800000)">
+							</cm:TimelineItem>
+							<cm:TimelineItem
+								userName="Alain Chevalier"
+								title="Credit Analyst"
+								filterValue="Credit Analyst"
+								userPicture="/test-resources/sap/suite/ui/commons/demokit/sample/Timeline/images/Alain_Chevalier.png"
+								icon="sap-icon://manager-insight"
+								text="Responsible for a high number of accounts (ca. 4000 customers).&#xA;Monitor the credit risk of his customers.&#xA;Focus on changes in his customer’s credit situation.&#xA;Recurring checks on a regular basis.&#xA;Decide on credit blocked sales orders.&#xA;Decide on credit limits for his customers (according the company’s credit policy).&#xA;&#xA;I almost always find a pragmatic solution, that’s acceptable for my customers and my company."
+								dateTime="Date(1332403200000)">
+							</cm:TimelineItem>
+							<cm:TimelineItem
+								userName="Monique Legrand"
+								title="GL Accountant"
+								filterValue="GL Accountant"
+								userPicture="/test-resources/sap/suite/ui/commons/demokit/sample/Timeline/images/Monique_Legrand.png"
+								icon="sap-icon://account"
+								text="Ensure and adjust correct structuring of company (e.g. chart of accounts, legal/management entities , profit centers etc. …).&#xA;Ensure accuracy of financial data (profit center data).&#xA;Explain financial data for both compliance and management purposes  (Profit center reporting).&#xA;Execute, check, and explain period-end close.&#xA;Identify root causes of issues on accounts, track and correct these.&#xA;&#xA;\I am a diligent person. I  put great attention to detail"
+								dateTime="Date(1422777600000)">
+							</cm:TimelineItem>
+						</cm:content>
+					</cm:Timeline>
+				</l:Grid>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>
