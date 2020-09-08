@@ -22,6 +22,7 @@
 				}, {
 					"name": "HTML",
 					"value": "HTML"
+					
 				}],
 				"value": "@basicSAPUI5ApplicationProject.parameters.ViewTypesCollection.binding.1",
 				"wizard": {
