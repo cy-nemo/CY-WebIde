@@ -1,0 +1,12 @@
+{
+	"authenticationMethod": "none",
+	"routes": [{
+		"source": "^/client/package.json",
+		"localDir": ".",
+		"cacheControl": "no-cache,must-revalidate"
+	}, {
+		"source": "^/client/(.*)",
+		"localDir": ".",
+		"cacheControl": "public,max-age=31536000"
+	}]
+}

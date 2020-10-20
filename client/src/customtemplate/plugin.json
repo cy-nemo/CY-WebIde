@@ -1,0 +1,55 @@
+{
+    "name": "customtemplate",
+    "description": "customtemplate",
+    "i18n": "customtemplate/i18n/i18n",
+    "requires": {
+        "services": [
+            "template",
+            "catalogstep",
+            "filesystem.documentProvider",
+            "projectType",
+            "setting.project",
+            "templateCustomizationStep"
+        ]
+    },
+    "provides": {
+        "services": {},
+        "interfaces": {}
+    },
+    "configures": {
+        "services": {
+            "template:templates": [
+                {
+                    "id": "cyTemplateProject.createdetailtemplate",
+                    "template": "customtemplate/createdetailtemplate/createdetailtemplate",
+                    "name": "{i18n>Config_template_createdetailtemplate_name}",
+                    "description": "{i18n>Config_template_createdetailtemplate_desc}",
+                    "path": "customtemplate/createdetailtemplate",
+                    "icon": "sap-icon://detail-view",
+                    "internalOnly": false,
+                    "category": "Common",
+                    "wizardSteps": [
+                        "catalogstep",
+                        "templateCustomizationStep"
+                    ],
+                    "templateType": "project",
+                    "requiresNeoApp": true,
+                    "version": "1.0.0",
+                    "orderPriority": 1000,
+                    "requiredTemplates": [
+                        {
+                            "id": "ui5template.2masterdetailcrudCommon",
+                            "version": "1.40.12"
+                        }
+                    ],
+                    "modelRoot": "2masterdetail",
+                    "modelFileName": "model.json",
+                    "fileName": "resources.zip",
+                    "previewImage": "image/previewImage.png",
+                    "templateCustomizationImage": "image/template.png"
+                }
+            ]
+        }
+    },
+    "subscribes": {}
+}

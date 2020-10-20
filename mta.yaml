@@ -1,0 +1,28 @@
+_schema-version: "2.0.0"
+ID: template
+version: 0.0.1
+
+modules:
+  - name: cyTemplateProject
+    type: html5
+    path: public
+    provides:
+      - name: cyTemplateProject-provides
+        public: true
+    build-parameters:
+      builder: npm
+      ignore: [".che/", ".npmrc"]
+      timeout: 15m
+      requires:
+        - name: cyTemplateProject-client
+          artifacts: ["dist/*"]
+          target-path: "client"
+  - name: cyTemplateProject-client
+    type: html5
+    path: client
+    build-parameters:
+      builder: custom
+      commands:
+        - npm install
+      timeout: 15m
+      supported-platforms: []

@@ -1,0 +1,27 @@
+{
+	"name": "template",
+	"title": "template",
+	"version": "0.0.1",
+	"description": "template",
+	"scripts": {
+		"postinstall": "node ./scripts/bundle.js && npm run lint",
+		"lint": "node ./node_modules/eslint/bin/eslint . --ext=.js,.json"
+	},
+	"devDependencies": {
+		"@sap-webide/webide-client-tools": "^2.2.0",
+		"eslint": "4.12.1",
+		"@sap/eslint-plugin-webide-feature": "1.3.22"
+	},
+	"bundledPlugins": {
+		"customtemplate": "file:src/customtemplate"
+	},
+	"webidePreloads": {
+		"js": [
+			"config-preload.js",
+			"i18n/config-preload.js"
+		],
+		"config": [
+			"config-preload.json"
+		]
+	}
+}
