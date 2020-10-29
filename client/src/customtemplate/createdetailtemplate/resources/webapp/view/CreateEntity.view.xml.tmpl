@@ -18,26 +18,37 @@
 							  labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2" 
 							  minWidth="1024"
 							  title="{= ${viewModel>/mode} === 'edit'? 'Edit {{2masterdetail.parameters.ObjectCollection.value.entityType}}': 'New {{2masterdetail.parameters.ObjectCollection.value.entityType}}'}">
-					<f:content>  {{#if 2masterdetail.aFormElements }}   {{#each 2masterdetail.aFormElements}}
-							<Label text="{{label}}" required="{{required}}" /> {{#each fields }}  {{#if_eq this "sap.m.Input"}}
-			                <Input name="{{../../name}}" id="{{create_id  ../../name}}"  
-    							 valueLiveUpdate="true"  liveChange="_validateSaveEnablement" 
-    							 enabled="{{{handleEnabledBinding ../../required  ../../creatable  ../../updatable  ../../isKey}}}"  visible="{{{handleVisibilityBinding ../../required  ../../../2masterdetail.parameters.DisplayOnlyRequiredFields.value}}}"
-								 value="{ path: '{{../../name}}',
-								 type: '{{../../type}}' {{#if ../../constraints }},
-								 constraints:{  
-									{{#isLastItem ../../../constraints}}{{#if $notlast}} {{name}}:{{value}}, 	{{/if}} {{#if $last}} 
-												  {{name}}:{{value}} {{/if}} 	{{/isLastItem}}
-												} {{/if}} 
-			            							  }"  /> 
-							            {{/if_eq}}
-							            {{#if_eq this "sap.m.DateTimeInput"}}
-							        		<DatePicker name="{{../../name}}" value="{ path: '{{../../name}}', type: 'sap.ui.model.type.DateTime'}"  id="{{create_id  ../../name}}"  type="DateTime" enabled="{{{handleEnabledBinding ../../required  ../../creatable  ../../updatable  ../../isKey}}}"  visible="{{{handleVisibilityBinding ../../required  ../../../2masterdetail.parameters.DisplayOnlyRequiredFields.value}}}"  /> 
-							        	{{/if_eq}}
-										{{#if_eq this "sap.m.CheckBox"}}
-											 <CheckBox name="{{../../name}}" selected="{ path: '{{../../name}}'}"  id="{{create_id  ../../name}}"  enabled="{{{handleEnabledBinding ../../required  ../../creatable  ../../updatable  ../../isKey}}}"  visible="{{{handleVisibilityBinding ../../required  ../../../2masterdetail.parameters.DisplayOnlyRequiredFields.value}}}"   />  
-										{{/if_eq}}
-								  {{/each}}  {{/each}}  {{/if}}
+					<f:content>  
+						{{#if 2masterdetail.aFormElements }}   
+							{{#each 2masterdetail.aFormElements}}
+								<Label text="{{label}}" required="{{required}}" /> 
+								
+								{{#each fields }}  
+									{{#if_eq this "sap.m.Input"}}
+			                			<Input name="{{../../name}}" id="{{create_id  ../../name}}"  
+    									valueLiveUpdate="true"  liveChange="_validateSaveEnablement" 
+    									enabled="{{{handleEnabledBinding ../../required  ../../creatable  ../../updatable  ../../isKey}}}"  visible="{{{handleVisibilityBinding ../../required  ../../../2masterdetail.parameters.DisplayOnlyRequiredFields.value}}}"
+										value="{ path: '{{../../name}}',
+										type: '{{../../type}}' 
+										
+										{{#if ../../constraints }},
+											constraints:{  
+												{{#isLastItem ../../../constraints}}
+													{{#if $notlast}}{{name}}:{{value}},{{/if}} 
+													{{#if $last}}{{name}}:{{value}}{{/if}}
+												{{/isLastItem}}
+										} {{/if}} 
+			            			    }"  /> 
+							        {{/if_eq}}
+							        {{#if_eq this "sap.m.DateTimeInput"}}
+							        	<DatePicker name="{{../../name}}" value="{ path: '{{../../name}}', type: 'sap.ui.model.type.DateTime'}"  id="{{create_id  ../../name}}"  type="DateTime" enabled="{{{handleEnabledBinding ../../required  ../../creatable  ../../updatable  ../../isKey}}}"  visible="{{{handleVisibilityBinding ../../required  ../../../2masterdetail.parameters.DisplayOnlyRequiredFields.value}}}"  /> 
+							        {{/if_eq}}
+									{{#if_eq this "sap.m.CheckBox"}}
+										 <CheckBox name="{{../../name}}" selected="{ path: '{{../../name}}'}"  id="{{create_id  ../../name}}"  enabled="{{{handleEnabledBinding ../../required  ../../creatable  ../../updatable  ../../isKey}}}"  visible="{{{handleVisibilityBinding ../../required  ../../../2masterdetail.parameters.DisplayOnlyRequiredFields.value}}}"   />  
+									{{/if_eq}}
+								{{/each}}  
+							{{/each}}
+						{{/if}}
 					</f:content>
 			</f:SimpleForm>
 		</semantic:content>

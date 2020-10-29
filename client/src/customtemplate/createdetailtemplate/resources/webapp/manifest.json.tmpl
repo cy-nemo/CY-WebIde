@@ -49,23 +49,6 @@
 		}
 	},
 
-{{#if 2masterdetail.parameters.ABAPDeployPath.value}}
-	"sap.platform.abap": {
-		"uri": "{{2masterdetail.parameters.ABAPDeployPath.value}}"
-	},
-
-{{/if}}
-{{#if 2masterdetail.environment.internal}}
-	"sap.fiori": {
-		"registrationIds": [
-{{#if 2masterdetail.parameters.FioriID.value}}
-			"{{2masterdetail.parameters.FioriID.value}}"
-{{/if}}
-		],
-		"archeType": "transactional"
-	},
-
-{{/if}}
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -154,7 +137,7 @@
 					"target": ["master", "notFound"]
 				},
 				"async": true
-			},
+			},'
 
 			"routes": [
 				{

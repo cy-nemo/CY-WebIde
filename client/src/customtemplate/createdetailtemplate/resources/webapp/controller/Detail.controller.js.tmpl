@@ -51,26 +51,7 @@ sap.ui.define([
 				);
 			},
 
-{{#unless 2masterdetail.environment.nonFLP}}
-			/**
-			 * Event handler when the share in JAM button has been clicked
-			 * @public
-			 */
-			onShareInJamPress : function () {
-				var oViewModel = this.getModel("detailView"),
-					oShareDialog = sap.ui.getCore().createComponent({
-						name : "sap.collaboration.components.fiori.sharing.dialog",
-						settings : {
-							object :{
-								id : location.href,
-								share : oViewModel.getProperty("/shareOnJamTitle")
-							}
-						}
-					});
-
-				oShareDialog.open();
-			},
-{{/unless}}{{#if 2masterdetail.parameters.LineItemCollection.value.name }}
+			{{#if 2masterdetail.parameters.LineItemCollection.value.name }}
 			/**
 			 * Updates the item count within the line item table's header
 			 * @param {object} oEvent an event containing the total number of items in the list
@@ -212,10 +193,7 @@ sap.ui.define([
 				oAppViewModel.setProperty("/itemToSelect", sPath);
 				this.getOwnerComponent().oListSelector.selectAListItem(sPath);
 
-{{#unless 2masterdetail.environment.nonFLP}}
-				oViewModel.setProperty("/saveAsTileTitle",oResourceBundle.getText("shareSaveTileAppTitle", [sObjectName]));
-				oViewModel.setProperty("/shareOnJamTitle", sObjectName);
-{{/unless}}
+
 				oViewModel.setProperty("/shareSendEmailSubject",
 					oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectId]));
 				oViewModel.setProperty("/shareSendEmailMessage",
