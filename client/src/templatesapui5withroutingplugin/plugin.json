@@ -5,11 +5,22 @@
     "requires": {
         "services": [
             "template",
+            "wizard",
+            "usernotification",
+            "log",
+            "command",
+            "commandGroup",
+            "catalogstep",
             "templateCustomizationStep"
         ]
     },
     "provides": {
-        "services": {},
+        "services": {
+        	"MasterDetailStep": {
+            	"implements": "sap.watt.common.service.ui.WizardStep",
+            	"module": "templatesapui5withroutingplugin/service/MasterDetailStep"
+            }
+        },
         "interfaces": {}
     },
     "configures": {
@@ -25,6 +36,7 @@
                     "internalOnly": false,
                     "category": "SAP.Fiori.Application",
                     "wizardSteps": [
+                    	"MasterDetailStep",
                         "templateCustomizationStep"
                     ],
                     "templateType": "project",
