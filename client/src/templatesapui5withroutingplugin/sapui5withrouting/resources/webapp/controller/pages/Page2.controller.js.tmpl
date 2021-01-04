@@ -8,8 +8,22 @@ sap.ui.define([
 			onInit: function() {
 				var route = this.getRouter().getRoute("RouteView2");
 				route.attachPatternMatched(this.onRouteMatchedRequest, this);
+				
 			},
 			onRouteMatchedRequest: function(oEvent) {
+				var RfcName = "{{CustomInputValue}}";
+			
+				var oThat = this;
+				$.ajax({
+				    url: RfcName,
+				    type: "GET",
+				    data: "",
+				    success: function(response){
+				        var oView = oThat.getView();
+						var oModel = new sap.ui.model.json.JSONModel({timeLineData : response.Employees});
+						oView.setModel(oModel);
+				    }
+				});
 			}
 		});
 

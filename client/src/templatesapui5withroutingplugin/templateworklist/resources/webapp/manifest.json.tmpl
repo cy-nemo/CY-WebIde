@@ -1,0 +1,127 @@
+{
+{{#if isSAPUI5160Selected}}
+	"_version": "1.12.0",
+{{else}}
+	"_version": "1.8.0",
+{{/if}}
+	"sap.app": {
+		"id": "{{basicSAPUI5ApplicationProject.parameters.namespace.value}}.{{projectName}}",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "\{{appTitle}}",
+		"description": "\{{appDescription}}",
+{{#if mode.internal}}
+		"resources": "resources.json",
+		"ach": "ach",
+{{/if}}
+		"sourceTemplate": {
+			"id": "{{selectedTemplateId}}",
+			"version": "{{selectedTemplateVersion}}"
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+            "icon": "",
+            "favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+        },
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+{{#if isSAPUI5160Selected}}
+		}
+{{else}}
+		},
+		"supportedThemes": [
+	{{#if ui5Config.AvailableThemes}}
+            {{#each ui5Config.AvailableThemes}}
+            	"{{this}}"
+            	{{#unless @last}},{{/unless}}
+            {{/each}}
+    {{else}}
+        	"sap_hcb",
+        	"sap_bluecrystal"
+    {{/if}}
+        ]
+{{/if}}
+	},
+
+	"sap.ui5": {
+{{#if basicSAPUI5ApplicationProject.hasView}}
+	{{#if isSAPUI5160Selected}}
+	    "flexEnabled": false,
+	{{/if}}
+		"rootView": {
+			"viewName":"{{basicSAPUI5ApplicationProject.parameters.namespace.value}}.{{projectName}}.view.{{basicSAPUI5ApplicationProject.parameters.name.value}}",
+			"type":"{{basicSAPUI5ApplicationProject.parameters.ViewTypesCollection.value.value}}"{{#if isSAPUI5160Selected}},{{/if}}
+		{{#if isSAPUI5160Selected}}
+			"async": true,
+			"id": "{{basicSAPUI5ApplicationProject.parameters.name.value}}"
+		{{/if}}
+		},
+{{/if}}
+		"dependencies": {
+			"minUI5Version": "{{ui5Config.minUI5Version}}",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "{{basicSAPUI5ApplicationProject.parameters.namespace.value}}.{{projectName}}.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+{{#if basicSAPUI5ApplicationProject.hasView}}
+		"routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "{{basicSAPUI5ApplicationProject.parameters.ViewTypesCollection.value.value}}",
+                "async": true,
+                "viewPath": "{{basicSAPUI5ApplicationProject.parameters.namespace.value}}.{{projectName}}.view", 
+                "controlAggregation": "pages",
+                "controlId": {{#if isSAPUI5160Selected}}"app"{{else}}"idAppControl"{{/if}},
+                "clearControlAggregation": false
+            }, 
+            "routes": [{
+                "name": "Route{{basicSAPUI5ApplicationProject.parameters.name.value}}",
+                "pattern": "Route{{basicSAPUI5ApplicationProject.parameters.name.value}}",
+                "target": ["Target{{basicSAPUI5ApplicationProject.parameters.name.value}}"]
+            }],
+            "targets": {
+                "Target{{basicSAPUI5ApplicationProject.parameters.name.value}}": {
+                    "viewType": "{{basicSAPUI5ApplicationProject.parameters.ViewTypesCollection.value.value}}",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+    		{{#if isSAPUI5160Selected}}
+                    "viewId": "{{basicSAPUI5ApplicationProject.parameters.name.value}}",
+        	{{/if}}
+                    "viewName": "{{basicSAPUI5ApplicationProject.parameters.name.value}}"
+                }
+            }
+		}
+{{/if}}
+	}
+}

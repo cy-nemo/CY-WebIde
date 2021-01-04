@@ -1,0 +1,11 @@
+<mvc:View controllerName="{{basicSAPUI5ApplicationProject.parameters.namespace.value}}.{{projectName}}.controller.{{basicSAPUI5ApplicationProject.parameters.name.value}}" xmlns:mvc="sap.ui.core.mvc" {{#if isSAPUI5160Selected}} {{else}}xmlns:html="http://www.w3.org/1999/xhtml"{{/if}} displayBlock="true" xmlns="sap.m">
+	{{#if isSAPUI5160Selected}}<Shell id="shell">{{/if}}
+		<App id={{#if isSAPUI5160Selected}}"app"{{else}}"idAppControl"{{/if}}>
+			<pages>
+				<Page {{#if isSAPUI5160Selected}}id="page"{{/if}} title="{i18n>title}">
+					<content></content>
+				</Page>
+			</pages>
+		</App>
+	{{#if isSAPUI5160Selected}}</Shell>{{/if}}
+</mvc:View>

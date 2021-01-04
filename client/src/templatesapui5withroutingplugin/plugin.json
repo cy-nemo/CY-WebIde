@@ -16,9 +16,9 @@
     },
     "provides": {
         "services": {
-        	"MasterDetailStep": {
-            	"implements": "sap.watt.common.service.ui.WizardStep",
-            	"module": "templatesapui5withroutingplugin/service/MasterDetailStep"
+            "MasterDetailStep": {
+                "implements": "sap.watt.common.service.ui.WizardStep",
+                "module": "templatesapui5withroutingplugin/service/MasterDetailStep"
             }
         },
         "interfaces": {}
@@ -34,9 +34,9 @@
                     "path": "templatesapui5withroutingplugin/sapui5withrouting",
                     "icon": "sap-icon://detail-view",
                     "internalOnly": false,
-                    "category": "SAP.Fiori.Application",
+                    "category": "Plugin.Dev",
                     "wizardSteps": [
-                    	"MasterDetailStep",
+                        "MasterDetailStep",
                         "templateCustomizationStep"
                     ],
                     "templateType": "project",
@@ -46,7 +46,34 @@
                     "modelRoot": "basicSAPUI5ApplicationProject",
                     "modelFileName": "model.json",
                     "fileName": "resources.zip",
-                    "previewImage": "image/SAPUI5-Application.png"
+                    "previewImage": "image/page.png"
+                },
+                {
+                    "id": "CY-WebIde.templateworklist",
+                    "template": "templatesapui5withroutingplugin/templateworklist/templateworklist",
+                    "name": "{i18n>Config_template_templateworklist_name}",
+                    "description": "{i18n>Config_template_templateworklist_desc}",
+                    "path": "templatesapui5withroutingplugin/templateworklist",
+                    "icon": "sap-icon://detail-view",
+                    "internalOnly": false,
+                    "category": "Plugin.Dev",
+                    "wizardSteps": [
+                        "templateCustomizationStep"
+                    ],
+                    "templateType": "project",
+                    "requiresNeoApp": true,
+                    "version": "1.0.0",
+                    "orderPriority": 1000,
+                    "requiredTemplates": [
+                        {
+                            "id": "ui5template.basicSAPUI5ApplicationProjectCommon",
+                            "version": "1.32.0"
+                        }
+                    ],
+                    "modelRoot": "basicSAPUI5ApplicationProject",
+                    "modelFileName": "model.json",
+                    "fileName": "resources.zip",
+                    "previewImage": "image/SAPUI5-preview.png"
                 }
             ]
         }

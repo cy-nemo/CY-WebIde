@@ -30,6 +30,13 @@ define(["sap/watt/lib/jszip/jszip-shim","./shared"], function(JSZip,shared) {
 				templateZip.files["webapp/controller/pages/Page2.controller.js.tmpl"].name = "webapp/controller/pages/"+model.basicSAPUI5ApplicationProject.parameters.name2.value+".controller.js.tmpl";
 				templateZip.files["webapp/view/pages/Page1.view.xml.tmpl"].name = "webapp/view/pages/"+model.basicSAPUI5ApplicationProject.parameters.name1.value+".view.xml.tmpl";
 				templateZip.files["webapp/view/pages/Page2.view.xml.tmpl"].name = "webapp/view/pages/"+model.basicSAPUI5ApplicationProject.parameters.name2.value+".view.xml.tmpl";
+				
+				
+				templateZip.files = templateZip.filter(function(element){
+					// 파일생성 포함시킬 조건. ex) js View만. 혹은 mobile용만.
+						return element;
+			    });
+				
 				return [templateZip, model];
 			},
 

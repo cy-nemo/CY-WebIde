@@ -1,24 +1,5 @@
-sap.ui.define([
-		"{{formatNamespace basicSAPUI5ApplicationProject.parameters.namespace.value}}/controller/BaseController",
-		"sap/ui/model/json/JSONModel"
-	], function (BaseController,JSONModel) {
-		"use strict";
-
-		return BaseController.extend("{{basicSAPUI5ApplicationProject.parameters.namespace.value}}.controller.pages.{{basicSAPUI5ApplicationProject.parameters.name1.value}}", {
-			onInit: function() {
-				var route = this.getRouter().getRoute("RouteView1");
-				route.attachPatternMatched(this.onRouteMatchedRequest, this);
-				
-			},
-			onRouteMatchedRequest: function(oEvent) {
-			},
-			onPress:function(){
-				this.getRouter().navTo("RouteView2");
-			},
-			getDataList : function (oEvent){
-			
-			var oModel = new sap.ui.model.json.JSONModel({
-					"opportunityList" :
+{
+	"opportunityList" :
 					[{
 							"AverageRating": "3.67",
 							"Name": "Notebook Basic 15",
@@ -253,13 +234,4 @@ sap.ui.define([
 							"WeightMeasure": "0.18",
 							"WeightUnit": "kg"
 						}]
-				});
-			this.getView().setModel(oModel);
-			
-			
-			
-		}
-		});
-
-	}
-);
+}
