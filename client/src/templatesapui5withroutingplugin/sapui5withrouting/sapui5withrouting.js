@@ -8,7 +8,7 @@ define(["sap/watt/lib/jszip/jszip-shim","./shared"], function(JSZip,shared) {
 		var NEW_AVAILABLE_THEMES = ["sap_hcb", "sap_belize"];
 
 		return {
-
+		// 파일명을 변경 한다던가. 상황에 따라 파일을 제외해야 하는 일이 있을경우 아래를 수정한ㄷ.
 			configWizardSteps: function(oTemplateCustomizationStep) {},
 
 			onBeforeTemplateGenerate: function(templateZip, model) {

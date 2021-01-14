@@ -27,7 +27,7 @@
         "services": {
             "template:templates": [
                 {
-                    "id": "TemplateSAPUI5WithRouting.sapui5withrouting",
+                    "id": "CY-WebIde.sapui5withrouting",
                     "template": "templatesapui5withroutingplugin/sapui5withrouting/sapui5withrouting",
                     "name": "{i18n>Config_template_sapui5withrouting_name}",
                     "description": "{i18n>Config_template_sapui5withrouting_desc}",
@@ -37,6 +37,7 @@
                     "category": "Plugin.Dev",
                     "wizardSteps": [
                         "MasterDetailStep",
+                        "templateCustomizationStep",
                         "templateCustomizationStep"
                     ],
                     "templateType": "project",

@@ -1,23 +1,23 @@
 _schema-version: "2.0.0"
-ID: templatesapui5withroutingfeature
+ID: cy-webide
 version: 0.0.1
 
 modules:
-  - name: TemplateSAPUI5WithRouting
+  - name: CY-Webide
     type: html5
     path: public
     provides:
-      - name: TemplateSAPUI5WithRouting
+      - name: CY-Webide-provides
         public: true
     build-parameters:
       builder: npm
       ignore: [".che/", ".npmrc"]
       timeout: 15m
       requires:
-        - name: TemplateSAPUI5WithRouting-client
+        - name: CY-Webide-client
           artifacts: ["dist/*"]
           target-path: "client"
-  - name: TemplateSAPUI5WithRouting-client
+  - name: CY-Webide-client
     type: html5
     path: client
     build-parameters:
