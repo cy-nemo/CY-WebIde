@@ -2,7 +2,7 @@
 	"name": "CY-Webide.client",
 	"title": "CY-Webide Template",
 	"version": "0.0.1",
-	"description": "Template SAPUI5 With Routing Feature",
+	"description": "Template SAPUI5 With CY ",
 	"scripts": {
 		"postinstall": "node ./scripts/bundle.js"
 	},

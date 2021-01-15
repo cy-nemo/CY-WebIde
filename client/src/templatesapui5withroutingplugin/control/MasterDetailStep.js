@@ -96,17 +96,17 @@ define(["sap.watt.ideplatform.template/ui/wizard/WizardStepContent",
 					        
 					        oModel.setProperty("/ComboData",aFieldKey);
 					        
-					        aFieldKey.forEach(function(val,idx,arr){
-					        	var oSearchLabel = new sap.m.Label({
-									text: val.name
-								});
-								// var sPath = "{/SearchCondition/"+val.name+"}"
-					    		var oSearchInput = new sap.m.Input();
-					    		oSearchInput.bindProperty("value", "SearchCondition>/" + val.name); 
-	                            lhBox.addItem(oSearchLabel);
-	                            lhBox.addItem(oSearchInput);
-	                            oParentLayout.addContent(lhBox);
-					        });
+					   //     aFieldKey.forEach(function(val,idx,arr){
+					   //     	var oSearchLabel = new sap.m.Label({
+								// 	text: val.name
+								// });
+								// // var sPath = "{/SearchCondition/"+val.name+"}"
+					   // 		var oSearchInput = new sap.m.Input();
+					   // 		oSearchInput.bindProperty("value", "SearchCondition>/" + val.name); 
+	       //                     lhBox.addItem(oSearchLabel);
+	       //                     lhBox.addItem(oSearchInput);
+	       //                     oParentLayout.addContent(lhBox);
+					   //     });
 					        
 					        oModel.setProperty("/basicSAPUI5ApplicationProject/parameters/ObjectCollection/binding",aFieldKey);
 					        oModel.setProperty("/basicSAPUI5ApplicationProject/parameters/ObjectCollection1/binding",aFieldKey);
